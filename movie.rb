@@ -9,6 +9,13 @@ class Movie
     @snack_carbs = Hash.new(0)
   end
   
+  #let's write a custom iterator
+  def each_snack
+    @snack_carbs.each do |name, carbs|
+      snack = Snack.new(name, carbs)
+      yield snack
+    end
+  end
 
   def hit?
     @rank >= 10

@@ -46,10 +46,16 @@ class Playlist
   def print_stats
     puts "\n#{@name}'s Stats:"
 
-puts "#{total_carbs_consumed} total carbs consumed"
+    puts "#{total_carbs_consumed} total carbs consumed"
 
     @movies.each do |movie|
       puts "\n#{movie.title}'s snack totals:"
+      
+      #this is where we call our custom iterator from movie.rb
+      movie.each_snack do |snack|
+        puts "#{snack.carbs} total #{snack.name} carbs"
+      end
+
       puts "#{movie.carbs_consumed} grand total carbs"
     end
 
